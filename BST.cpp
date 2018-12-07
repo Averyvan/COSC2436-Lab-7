@@ -198,16 +198,40 @@ void BST<ItemType>::graphAux(ostream & out, int indent,
 
 //---CUSTOM METHODS BEGIN HERE---
 template<typename T>
-int BST<T>::getHeight(BinaryNode<T> *locptr = myRoot) const
+int BST<T>::getHeight() const
 {
-	if (isEmpty()) return 0;
-	int height = 0;
-	int leftDepth = getHeight(myRoot->getLeftChildPtr());
-	int rightDepth = getHeight(myRoot->getRightChildPtr());
-	return ((leftDepth > rightDepth) ? leftDepth : rightDepth) + 1
-	
+	return getHeightAux(myRoot);
 }
 
+template<typename T>
+int BST<T>::getHeightAux(BinaryNode<T> *locptr) const
+{	
+	if (locptr != nullptr)
+	{
+		int leftDepth = getHeightAux(locptr->getLeftChildPtr());
+		int rightDepth = getHeightAux(locptr->getRightChildPtr());
+		return ((leftDepth > rightDepth) ? leftDepth : rightDepth) + 1;
+	}
+	return 0;
+}
+
+template<typename T>
+int BST<T>::getNumberOfNodes() const
+{
+	return getNumberOfNodesAux(myRoot);
+}
+
+template<typename T>
+int BST<T>::getNumberOfNodesAux(BinaryNode<T> *locptr) const
+{
+	if (locptr != nullptr)
+	{
+		int leftSize = getNumberOfNodesAux(locptr->getLeftChildPtr());
+		int rightSize = getNumberOfNodesAux(locptr->getRightChildPtr());
+		return leftSize + rightSize + 1;
+	}
+	return 0;
+}
 
 
 

@@ -28,7 +28,8 @@ int main()
         cin >> number;
         if (number == -999) break;
         intBST.add(number);
-
+    	cout<<"Tree height: "<<intBST.getHeight()<<endl;
+    	cout<<"Tree size: "<<intBST.getNumberOfNodes()<<endl;
 
     }
     cout << "\n";
@@ -39,6 +40,7 @@ int main()
     intBST.inorder(cout);
     
     cout << endl;
+
     
     // Testing search()
     cout << "\n\nNow testing the contains() operation."
@@ -61,7 +63,8 @@ int main()
         if (number == -999) break;
         intBST.remove(number);
         intBST.graph(cout);
-
+		cout<<"Tree height: "<<intBST.getHeight()<<endl;
+    	cout<<"Tree size: "<<intBST.getNumberOfNodes()<<endl;
 
     }
     cout << "\nInorder Traversal of BST: \n";

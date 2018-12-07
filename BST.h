@@ -100,11 +100,13 @@ public:
      Postcondition: Graphical representation of BST has been output to out.
      Note: graph() uses private auxiliary function graphAux().
      ------------------------------------------------------------------------*/
-	int getHeight(BinaryNode<ItemType> *locptr = myRoot) const;
-
+     
+    //Custom functions start here
+	int getHeight() const;
+	//Calls getHeight to get height of BST from this node down
+	//Post: returns height as int
 
 	int getNumberOfNodes() const;
-
 
 	int getNumberOfLeaves() const;
 
@@ -155,6 +157,17 @@ private:
      to by subtreePtr has been output to out, indented indent spaces.
      ------------------------------------------------------------------------*/
     
+    //Start of custom functions
+	int getHeightAux(BinaryNode<ItemType> *locptr) const;
+	/*------------------------------------------------------------------------
+	 Traverse BST to find height. Custom Function
+	 
+	 Pre: locptr is pointing at a node in a BST
+	 Post: Returns 1 + (greater of height down the left side or right side)
+	 ------------------------------------------------------------------------*/
+	
+	int getNumberOfNodesAux(BinaryNode<ItemType> *locptr) const;
+	 
 
     
     /***** Data Members *****/
