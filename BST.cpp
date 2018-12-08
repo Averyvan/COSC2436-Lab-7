@@ -233,5 +233,71 @@ int BST<T>::getNumberOfNodesAux(BinaryNode<T> *locptr) const
 	return 0;
 }
 
+template<typename T>
+int BST<T>::getNumberOfLeaves() const
+{
+	return getNumberOfLeavesAux(myRoot);
+}
 
+template<typename T>
+int BST<T>::getNumberOfLeavesAux(BinaryNode<T> *locptr) const
+{
+	if (locptr != nullptr)
+	{
+		if (locptr->getLeftChildPtr() == nullptr && locptr->getRightChildPtr() == nullptr)
+			return 1;
+		return getNumberOfLeavesAux(locptr->getLeftChildPtr()) + getNumberOfLeavesAux(locptr->getRightChildPtr());
+	}
+	return 0;
+}
+
+//template <typename ItemType>
+//void BST<ItemType>::inorderAux(ostream & out,
+//                               BinaryNode<ItemType>* subtreeRoot) const
+//{
+//    if (subtreeRoot != nullptr)
+//    {
+//        inorderAux(out, subtreeRoot->getLeftChildPtr());    // L operation
+//        out << subtreeRoot->getItem() << "  ";      // V operation
+//        inorderAux(out, subtreeRoot->getRightChildPtr());   // R operation
+//    }
+//}
+
+//ROOT -> Left -> Right
+template<typename T>
+void BST<T>::preorder(ostream & out) const
+{
+	return preorderAux(out, myRoot);
+}
+
+template<typename T>
+void BST<T>::preorderAux(ostream & out, BinaryNode<T> *locptr) const
+{
+	if (locptr != nullptr)
+	{
+		out << locptr->getItem() << "  "; //Root
+		preorderAux(out, locptr->getLeftChildPtr()); //Left
+		preorderAux(out, locptr->getRightChildPtr()); //Right
+	}
+	return;
+}
+
+//Left -> Right -> ROOT
+template<typename T>
+void BST<T>::postorder(ostream & out) const
+{
+	return postorderAux(out, myRoot);
+}
+
+template<typename T>
+void BST<T>::postorderAux(ostream & out, BinaryNode<T> *locptr) const
+{
+	if (locptr != nullptr)
+	{
+		postorderAux(out, locptr->getLeftChildPtr()); //Left
+		postorderAux(out, locptr->getRightChildPtr()); //Right
+		out << locptr->getItem() << "  "; //Root
+	}
+	return;
+}
 

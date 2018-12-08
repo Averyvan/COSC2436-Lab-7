@@ -102,13 +102,20 @@ public:
      ------------------------------------------------------------------------*/
      
     //Custom functions start here
-	int getHeight() const;
-	//Calls getHeight to get height of BST from this node down
+    
+	//Calls getHeightAux to get height of BST from this node down
 	//Post: returns height as int
+	int getHeight() const;
 
 	int getNumberOfNodes() const;
 
 	int getNumberOfLeaves() const;
+	
+	//ROOT -> Left -> Right
+	void preorder(ostream & out) const;
+	
+	//Left -> Right -> ROOT
+	void postorder(ostream & out) const;
 
     
 private:
@@ -167,6 +174,12 @@ private:
 	 ------------------------------------------------------------------------*/
 	
 	int getNumberOfNodesAux(BinaryNode<ItemType> *locptr) const;
+	
+	int getNumberOfLeavesAux(BinaryNode<ItemType> *locptr) const;
+	
+	void preorderAux(ostream & out, BinaryNode<ItemType> *locptr) const;
+	
+	void postorderAux(ostream & out, BinaryNode<ItemType> *locptr) const;
 	 
 
     

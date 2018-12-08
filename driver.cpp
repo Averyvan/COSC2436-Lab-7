@@ -28,16 +28,33 @@ int main()
         cin >> number;
         if (number == -999) break;
         intBST.add(number);
+        
+        intBST.graph(cout);
+	    
+	    cout << "\nBST " << (intBST.isEmpty() ? "is" : "is not") << " empty\n";
+	    cout << "Preorder Traversal of BST: \n";
+	    intBST.preorder(cout);
+	    cout << "\nInorder Traversal of BST: \n";
+	    intBST.inorder(cout);
+	    cout << "\nPostorder Traversal of BST: \n";
+	    intBST.postorder(cout);
+	    cout<<endl;
+	    
     	cout<<"Tree height: "<<intBST.getHeight()<<endl;
     	cout<<"Tree size: "<<intBST.getNumberOfNodes()<<endl;
+    	cout<<"Tree leaves: "<<intBST.getNumberOfLeaves()<<endl;
 
     }
     cout << "\n";
     intBST.graph(cout);
     
     cout << "\nBST " << (intBST.isEmpty() ? "is" : "is not") << " empty\n";
-    cout << "Inorder Traversal of BST: \n";
+    cout << "Preorder Traversal of BST: \n";
+    intBST.preorder(cout);
+    cout << "\nInorder Traversal of BST: \n";
     intBST.inorder(cout);
+    cout << "\nPostorder Traversal of BST: \n";
+    intBST.postorder(cout);
     
     cout << endl;
 
@@ -65,6 +82,7 @@ int main()
         intBST.graph(cout);
 		cout<<"Tree height: "<<intBST.getHeight()<<endl;
     	cout<<"Tree size: "<<intBST.getNumberOfNodes()<<endl;
+    	cout<<"Tree leaves: "<<intBST.getNumberOfLeaves()<<endl;
 
     }
     cout << "\nInorder Traversal of BST: \n";
