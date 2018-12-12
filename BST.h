@@ -23,6 +23,7 @@
 
 #include <iostream>
 #include "BinaryNode.h"
+#include <vector>
 
 #ifndef BINARY_SEARCH_TREE
 #define BINARY_SEARCH_TREE
@@ -103,21 +104,30 @@ public:
      
     //Custom functions start here
     
-	//Calls getHeightAux to get height of BST from this node down
-	//Post: returns height as int
 	int getHeight() const;
-
+	//Calls getHeightAux to get height of BST
+	//Post: returns height as int
+	
 	int getNumberOfNodes() const;
-
+	//Calls getNumberOfNodesAux to get total number of nodes in BST
+	//Post: returns total number of nodes as int
+	
 	int getNumberOfLeaves() const;
+	//Calls getNumberOfLeavesAux to get total number of leaves (nodes without children) in BST
+	//Post: returns number of leaves as omt
 	
 	//ROOT -> Left -> Right
 	void preorder(ostream & out) const;
+	//Calls preorderAux for accurate traversal
+	//Pre: ostream out is open
+	//Post: BST has been preorder traversed and node values output to out
 	
 	//Left -> Right -> ROOT
 	void postorder(ostream & out) const;
-
-    
+	//Calls postorderAux for accurate traversal
+	//Pre: ostream out is open
+	//Post: BST has been postorder traversed and node values output to out
+	
 private:
     
     void destroyTree(BinaryNode<ItemType> *subTreePtr);
@@ -174,15 +184,21 @@ private:
 	 ------------------------------------------------------------------------*/
 	
 	int getNumberOfNodesAux(BinaryNode<ItemType> *locptr) const;
+	//Pre: locptr is pointing at a node in a BST
+	//Post: Returns 1 + nodes on left side + nodes on right side
 	
 	int getNumberOfLeavesAux(BinaryNode<ItemType> *locptr) const;
+	//Pre: locptr is pointing at a node in a BST
+	//Post: Returns leaves on left side + leaves on right side
 	
 	void preorderAux(ostream & out, BinaryNode<ItemType> *locptr) const;
+	//Pre: ostream out is open, locptr points to a node in a BST
+	//Post: subtree with root pointed to by locptr has been output to out
 	
 	void postorderAux(ostream & out, BinaryNode<ItemType> *locptr) const;
-	 
-
-    
+	//Pre: ostream out is open, locptr points to a node in a BST
+	//Post: subtree with root pointed to by locptr has been output to out
+	
     /***** Data Members *****/
     BinaryNode<ItemType>* myRoot;
     

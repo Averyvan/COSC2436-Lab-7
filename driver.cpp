@@ -32,10 +32,10 @@ int main()
         intBST.graph(cout);
 	    
 	    cout << "\nBST " << (intBST.isEmpty() ? "is" : "is not") << " empty\n";
-	    cout << "Preorder Traversal of BST: \n";
-	    intBST.preorder(cout);
 	    cout << "\nInorder Traversal of BST: \n";
 	    intBST.inorder(cout);
+	    cout << "Preorder Traversal of BST: \n";
+	    intBST.preorder(cout);
 	    cout << "\nPostorder Traversal of BST: \n";
 	    intBST.postorder(cout);
 	    cout<<endl;
@@ -49,10 +49,10 @@ int main()
     intBST.graph(cout);
     
     cout << "\nBST " << (intBST.isEmpty() ? "is" : "is not") << " empty\n";
-    cout << "Preorder Traversal of BST: \n";
-    intBST.preorder(cout);
     cout << "\nInorder Traversal of BST: \n";
     intBST.inorder(cout);
+    cout << "Preorder Traversal of BST: \n";
+    intBST.preorder(cout);
     cout << "\nPostorder Traversal of BST: \n";
     intBST.postorder(cout);
     
@@ -87,8 +87,35 @@ int main()
     }
     cout << "\nInorder Traversal of BST: \n";
     intBST.inorder(cout);
+    cout << "Preorder Traversal of BST: \n";
+    intBST.preorder(cout);
+    cout << "\nPostorder Traversal of BST: \n";
     cout << endl;
     
 
     
 }
+
+/* Sample output:
+Item to insert (-999 to stop): 50
+        70
+ 60
+                        50
+                40
+                        30
+        20
+                10
+
+BST is not empty
+Preorder Traversal of BST:
+60  20  10  40  30  50  70
+Inorder Traversal of BST:
+10  20  30  40  50  60  70
+Postorder Traversal of BST:
+10  30  50  40  20  70  60
+Tree height: 4
+Tree size: 7
+Tree leaves: 4
+
+
+
