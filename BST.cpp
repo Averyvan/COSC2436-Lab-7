@@ -74,6 +74,7 @@ bool BST<ItemType>::add(const ItemType & anItem) {
 		else                           // insert to right of parent
 			parent->setRightChildPtr(locptr);
 	}
+	else cout<<"\nERROR: Item already in tree.\n";
 	return found;
 }
 
@@ -86,6 +87,7 @@ bool BST<ItemType>::remove(const ItemType & anItem) {
 	search2(anItem, found, x, parent);
 
 	if (!found) {
+		cout<<"\nERROR: Item not found.\n\n";
 		return false;
 	}
 	//else
